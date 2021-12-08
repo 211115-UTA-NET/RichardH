@@ -1,0 +1,15 @@
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.csproj.AssemblyReference.cache
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.AssemblyInfoInputs.cache
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.AssemblyInfo.cs
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.csproj.CoreCompileInputs.cache
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\bin\Debug\net6.0\testdotnet.exe
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\bin\Debug\net6.0\testdotnet.deps.json
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\bin\Debug\net6.0\testdotnet.runtimeconfig.json
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\bin\Debug\net6.0\testdotnet.dll
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\bin\Debug\net6.0\ref\testdotnet.dll
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\bin\Debug\net6.0\testdotnet.pdb
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.dll
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\ref\testdotnet.dll
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.pdb
+C:\Users\RichardHawkins\Revature\RichardH\testdotnet\obj\Debug\net6.0\testdotnet.genruntimeconfig.cache

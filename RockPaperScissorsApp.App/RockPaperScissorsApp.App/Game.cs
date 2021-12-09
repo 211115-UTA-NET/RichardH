@@ -1,32 +1,36 @@
-﻿using System;
+﻿using System.Xml.Serialization;
 
 namespace RockPaperScissorsApp.App
 {
     internal partial class Game
     {
+
+        // Fields
         private enum Cast
         {
             Rock,
             Paper,
             Scissors
         }
-
         private int computer = -1;
         private int player = -1;
+        private string playerName;
+        private List<Records> allRecords = new List<Records>();
+        public XmlSerializer Serializer { get; } = new(typeof(List<Serialization.Records>));
 
-        List<Records> allRecords = new List<Records>();
 
-
-        public void Summary()
+        // Constructors
+        public Game(string playerName, List<Records>? allRecords = null)
         {
-            Console.WriteLine("Time\t\tPlayer\t\tcomputer\t\tResult");
-            foreach (var record in allRecords)
+            this.playerName = playerName;
+            if (allRecords != null)
             {
-                Console.WriteLine($"{record.time.ToShortDateString}\t{record.player}\t\t{record.computer}\t\t{record.res}");
-            }
-            
+                this.allRecords = allRecords;
+            }    
         }
 
+
+        // Methods
         internal void PlayRound()
         {
             computer = getComputer();
@@ -35,11 +39,13 @@ namespace RockPaperScissorsApp.App
             checkWin(computer, player);         
         }
 
+
         private int getComputer()
         {
             Random rnd = new Random();
             return rnd.Next(0,3);
         }
+
 
         private int getPlayer()
         {
@@ -68,9 +74,9 @@ namespace RockPaperScissorsApp.App
                 Console.WriteLine("Not a valid selection.");
                 return -1;
             }
-
             return playInt;
         }
+
 
         private void checkWin(int computer, int player)
         {
@@ -100,9 +106,52 @@ namespace RockPaperScissorsApp.App
                 Console.WriteLine("DRAW");
                 res = 2;
             }
-            var record = new Records(res, ((Cast)player).ToString(), ((Cast)computer).ToString());
+            var record = new Records(res, playerName, ((Cast)player).ToString(), ((Cast)computer).ToString(), DateTime.Now);
             allRecords.Add(record);
+        }
 
+
+        public void Summary()
+        {
+            Console.WriteLine("Player\t\tTime\t\tPlayer\t\tComputer\t\tResult");
+            foreach (var record in allRecords)
+            {
+                Console.WriteLine($"{record.PlayerName}\t\t{record.Time.ToShortDateString()}\t{record.PlayerThrow}\t\t{record.ComputerThrow}\t\t{record.Res}");
+            }
+        }
+
+
+        public string SerializeAsXML()
+        {
+
+
+            var xmlRecords = new List<Serialization.Records>();
+
+            foreach (Records record in allRecords)
+            {
+                //var xml = new Xml.Records();
+                //xml.When = record.time;
+                //xml.PlayerThrow = record.playerThrow;
+                //xml.ComputerThrow = record.computerThrow;
+
+
+                var xml = new Serialization.Records();
+                {
+                    xml.Time = record.Time;
+                    xml.PlayerName = record.PlayerName;
+                    xml.ComputerThrow = record.ComputerThrow;
+                    xml.PlayerThrow = record.PlayerThrow;
+                    xml.Res = record.Res.ToString();
+                }
+
+                xmlRecords.Add(xml);
+
+            }
+
+            var stringwriter = new StringWriter();
+            Serializer.Serialize(stringwriter, xmlRecords);
+            stringwriter.Close();
+            return stringwriter.ToString();
         }
     }
 }

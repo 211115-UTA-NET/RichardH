@@ -1,6 +1,6 @@
 ﻿namespace RockPaperScissorsApp.App
 {
-    internal class Records
+    internal class Round
     {
         // XmlSerializer (and often other serializers)
         //  they expect classes that have a zero-argument constructor
@@ -27,7 +27,7 @@
 
 
         // Constructor
-        public Records(int Res, string PlayerName, string Player, string Computer, DateTime Time)
+        public Round(int Res, string PlayerName, string Player, string Computer, DateTime Time)
         {
             this.Res = (Result)Res;
             this.PlayerName = PlayerName;
@@ -36,7 +36,7 @@
             this.Time = Time;
         }
 
-        public Records(Serialization.Records xmlRecords)
+        public Round(Serialization.Records xmlRecords)
         {
             if (xmlRecords.Res == null) 
             {

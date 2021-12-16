@@ -36,7 +36,7 @@ namespace RockPaperScissorsApp.App
                 name = Console.ReadLine();
             }
 
-            List<Records> records = ReadHistoryFromFile(filePath);
+            List<Round>? records = ReadHistoryFromFile(filePath);
             Game game = new Game(name, records);
             Console.WriteLine($"Welcome {name}");
 
@@ -75,7 +75,7 @@ namespace RockPaperScissorsApp.App
         //  "This is a class that needs to be Disposed when you're done."
 
 
-        private static List<Records>? ReadHistoryFromFile(string filePath)
+        private static List<Round>? ReadHistoryFromFile(string filePath)
         {
             XmlSerializer serializer = new(typeof(List<Serialization.Records>));
 
@@ -87,7 +87,7 @@ namespace RockPaperScissorsApp.App
                     var records = (List<Serialization.Records>?)serializer.Deserialize(reader);
 
                     if (records is null) throw new InvalidDataException();
-                    return records.Select(x => new Records(x)).ToList();
+                    return records.Select(x => new Round(x)).ToList();
                 }
                 catch (IOException)
                 {

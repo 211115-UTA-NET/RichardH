@@ -15,12 +15,12 @@ namespace RockPaperScissorsApp.App
         private int computer = -1;
         private int player = -1;
         private string playerName;
-        private List<Records> allRecords = new List<Records>();
+        private List<Round> allRecords = new List<Round>();
         public XmlSerializer Serializer { get; } = new(typeof(List<Serialization.Records>));
 
 
         // Constructors
-        public Game(string playerName, List<Records>? allRecords = null)
+        public Game(string playerName, List<Round>? allRecords = null)
         {
             this.playerName = playerName;
             if (allRecords != null)
@@ -49,31 +49,41 @@ namespace RockPaperScissorsApp.App
 
         private int getPlayer()
         {
-            Console.Clear();
-            Console.WriteLine("Playing a new game");
-            Console.WriteLine("Select your sign:");
-            Console.WriteLine("[0] - Rock");
-            Console.WriteLine("[1] - Paper");
-            Console.WriteLine("[2] - Scissors");
+            bool loop = true;
+            int playInt = -1;
 
-            string? playerIn = Console.ReadLine();
-            int playInt;
-
-            if (Int32.TryParse(playerIn, out int testInt))
+            while (loop == true)
             {
-                playInt = Int32.Parse(playerIn);
+                Console.Clear();
+                Console.WriteLine("Playing a new game");
+                Console.WriteLine("Select your sign:");
+                Console.WriteLine("[0] - Rock");
+                Console.WriteLine("[1] - Paper");
+                Console.WriteLine("[2] - Scissors");
 
-                if ((0 > playInt) || (playInt > 2))
+                string? playerIn = Console.ReadLine();
+               
+                if (Int32.TryParse(playerIn, out int testInt))
                 {
-                    Console.WriteLine("Not a valid selection.");
-                    return -1;
+                    testInt = Int32.Parse(playerIn);
+
+                    if ((0 > testInt) || (testInt > 2))
+                    {
+                        Console.WriteLine("Not a valid selection. Please try again");
+                        Console.WriteLine("Press Enter to continue.");
+                        Console.ReadLine();
+                        return playInt;
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid selection. Please try again");
+                    Console.WriteLine("Press Enter to continue.");
+                    Console.ReadLine();
                 }
             }
-            else
-            {
-                Console.WriteLine("Not a valid selection.");
-                return -1;
-            }
+
             return playInt;
         }
 
@@ -106,7 +116,7 @@ namespace RockPaperScissorsApp.App
                 Console.WriteLine("DRAW");
                 res = 2;
             }
-            var record = new Records(res, playerName, ((Cast)player).ToString(), ((Cast)computer).ToString(), DateTime.Now);
+            var record = new Round(res, playerName, ((Cast)player).ToString(), ((Cast)computer).ToString(), DateTime.Now);
             allRecords.Add(record);
         }
 
@@ -127,7 +137,7 @@ namespace RockPaperScissorsApp.App
 
             var xmlRecords = new List<Serialization.Records>();
 
-            foreach (Records record in allRecords)
+            foreach (Round record in allRecords)
             {
                 //var xml = new Xml.Records();
                 //xml.When = record.time;

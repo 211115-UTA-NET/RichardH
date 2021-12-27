@@ -1,0 +1,52 @@
+# GET /posts HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+
+# GET /posts/1 HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+
+# GET /posts/1/comments HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+
+# GET /comments?postId=1 HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+
+# POST /posts HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 176
+
+# {
+#   "userId": 1,
+#   "id": 1,
+#   "title": "c'est ne pas un http request",
+#   "body": "Ahh, life. She is a fickle mistress, non? Who can say what will be thrown at you next?"
+# }
+
+# PUT /posts/1 HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 211
+
+# {
+#   "userId": 3,
+#   "id": 169,
+#   "title": "What do you call a yellow berry that bounces?",
+#   "body": "BANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANANA"
+# }
+
+
+
+# PATCH /posts/1 HTTP/1.1
+# Host: jsonplaceholder.typicode.com
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 112
+
+# {
+#   "userId": 3,
+#   "id": 169,
+#   "title": "What do you call a red fruit that doesn't?",
+#   "body": "Rotten"
+# }
+
+# DELETE /posts/1 HTTP/1.1
+# Host: jsonplaceholder.typicode.com

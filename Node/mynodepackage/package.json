@@ -1,0 +1,15 @@
+{
+  "name": "mynodepackage",
+  "version": "1.0.0",
+  "description": "my node package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Revature"
+  ],
+  "author": "Richard Hawkins",
+  "license": "ISC",
+  "private" : "True"
+}

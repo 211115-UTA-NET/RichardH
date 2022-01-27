@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\RichardHawkins\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj": {}
+    "C:\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\RichardHawkins\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj": {
+    "C:\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\RichardHawkins\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj",
+        "projectUniqueName": "C:\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj",
         "projectName": "RockPaperScissorsApp.App",
-        "projectPath": "C:\\Users\\RichardHawkins\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj",
+        "projectPath": "C:\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App.csproj",
         "packagesPath": "C:\\Users\\RichardHawkins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\RichardHawkins\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\obj\\",
+        "outputPath": "C:\\Revature\\RichardH\\RockPaperScissorsApp.App\\RockPaperScissorsApp.App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\RichardHawkins\\AppData\\Roaming\\NuGet\\NuGet.Config",

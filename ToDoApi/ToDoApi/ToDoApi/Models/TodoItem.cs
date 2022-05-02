@@ -1,17 +1,19 @@
-﻿namespace ToDoApi.Models
+﻿using Microsoft.EntityFrameworkCore;
+namespace ToDoApi.Models
 {
     public class TodoItem
     {
-        public long Id { get; set; }
-        public string? Name { get; set; }
-        public bool IsComplete { get; set; }
+        public long ItemID { get; set; }
+        public string? ItemName { get; set; }
+        public bool ItemIsComplete { get; set; }
         public string? Secret { get; set; }
     }
 
     public class TodoItemDTO
     {
-        public long Id { get; set; }
-        public string? Name { get; set; }
-        public bool IsComplete { get; set; }
+        [Key]
+        public long ItemID { get; set; }
+        public string? ItemName { get; set; }
+        public bool ItemIsComplete { get; set; }
     }
 }

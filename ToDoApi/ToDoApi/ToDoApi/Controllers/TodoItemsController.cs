@@ -47,7 +47,7 @@ namespace ToDoApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTodoItem(long id, TodoItemDTO todoItemDTO)
         {
-            if (id != todoItemDTO.Id)
+            if (id != todoItemDTO.ItemID)
             {
                 return BadRequest();
             }
@@ -57,8 +57,8 @@ namespace ToDoApi.Controllers
             {
                 return NotFound();
             }
-            todoItem.Name = todoItemDTO.Name;
-            todoItem.IsComplete = todoItemDTO.IsComplete;
+            todoItem.ItemName = todoItemDTO.ItemName;
+            todoItem.ItemIsComplete = todoItemDTO.ItemIsComplete;
 
             try
             {
@@ -79,8 +79,8 @@ namespace ToDoApi.Controllers
         {
             var todoItem = new TodoItem
             {
-                IsComplete = todoItemDTO.IsComplete,
-                Name = todoItemDTO.Name
+                ItemIsComplete = todoItemDTO.ItemIsComplete,
+                ItemName = todoItemDTO.ItemName
             };
 
             _context.TodoItems.Add(todoItem);
@@ -89,7 +89,7 @@ namespace ToDoApi.Controllers
             //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(
                 nameof(GetTodoItem),
-                new { id = todoItem.Id },
+                new { id = todoItem.ItemID },
                 ItemToDTO(todoItem));
         }
 
@@ -112,15 +112,15 @@ namespace ToDoApi.Controllers
 
         private bool TodoItemExists(long id)
         {
-            return _context.TodoItems.Any(e => e.Id == id);
+            return _context.TodoItems.Any(e => e.ItemID == id);
         }
 
         private static TodoItemDTO ItemToDTO(TodoItem todoItem) =>
             new TodoItemDTO
             {
-                Id = todoItem.Id,
-                Name = todoItem.Name,
-                IsComplete = todoItem.IsComplete,
+                ItemID = todoItem.ItemID,
+                ItemName = todoItem.ItemName,
+                ItemIsComplete = todoItem.ItemIsComplete,
             };
 
     }

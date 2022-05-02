@@ -3,13 +3,20 @@ using ToDoApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string ConnectionString = builder.Configuration.GetConnectionString("ConnectionString");
+
 // Add services to the container.
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TodoContext>(opt =>
-    opt.UseInMemoryDatabase("TodoList"));
+{
+    opt.UseSqlServer(ConnectionString);
+
+    //opt.UseInMemoryDatabase("TodoList");
+});
+
 
 builder.Services.AddSwaggerGen(c =>
  {
@@ -17,6 +24,16 @@ builder.Services.AddSwaggerGen(c =>
  });
 
 var app = builder.Build();
+
+//builder.Services.AddCors(opt =>
+//{
+//    opt.AddDefaultPolicy(builder =>
+//        builder
+//            .AllowAnyMethod()
+//            .AllowAnyHeader()
+//            .AllowAnyOrigin()
+//            .AllowCredentials());
+//});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
